@@ -3,250 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buat Safelink Massal Anda</title>
+    <title>Penayangan Video Responsif</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #f0f2f5 0%, #e0e5ec 100%);
-            color: #333;
-            overflow-y: auto; /* Allow scrolling for long outputs */
-            padding: 20px 0; /* Add some padding for better aesthetics */
+            font-family: sans-serif;
+            flex-direction: column;
         }
-        .container {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 700px; /* Wider container for better text area */
+
+        .video-container {
+            position: relative;
             width: 90%;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInScale 0.8s forwards ease-out;
-            border: 1px solid #e0e0e0;
+            max-width: 1200px;
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        @keyframes fadeInScale {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        .video-container::before {
+            content: '';
+            display: block;
+            padding-top: 56.25%; /* Rasio aspek 16:9 */
         }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
         h1 {
-            color: #2c3e50;
+            text-align: center;
+            color: #333;
             margin-bottom: 20px;
             font-size: 2em;
         }
-        p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 30px;
+
+        .loading-message {
+            text-align: center;
+            color: #777;
+            margin-top: 20px;
+            font-style: italic;
         }
-        .input-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #34495e;
-        }
-        textarea {
-            width: calc(100% - 20px);
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1em;
-            box-sizing: border-box;
-            min-height: 150px; /* Larger textarea for multiple URLs */
-            resize: vertical; /* Allow vertical resizing */
-            transition: border-color 0.3s;
-        }
-        textarea:focus {
-            border-color: #007bff;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
-        }
-        button {
-            background-color: #28a745;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
-            width: 100%;
-        }
-        button:hover {
-            background-color: #218838;
-            transform: translateY(-2px);
-        }
-        .result-group {
-            margin-top: 30px;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
-            display: none; /* Hidden by default */
-            text-align: left; /* Align output text to left */
-        }
-        .result-group.show {
-            display: block;
-        }
-        #safelinkOutput {
-            background-color: #e6f7ff;
-            border: 1px solid #007bff;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 15px;
-            font-size: 0.95em;
-            color: #0056b3;
-            white-space: pre-wrap; /* Preserve whitespace and wrap text */
-            word-break: break-all;
-            max-height: 300px; /* Limit height and make it scrollable */
-            overflow-y: auto;
-            text-align: left; /* Align output text to left */
-        }
-        .copy-button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-            margin-top: 10px;
-            transition: background-color 0.3s ease;
-        }
-        .copy-button:hover {
-            background-color: #0056b3;
-        }
-        .message {
-            margin-top: 10px;
-            font-size: 0.9em;
-            color: #d33;
-        }
-        .message.success {
-            color: #28a745;
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .video-container {
+                width: 95%;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Generator Safelink Massal</h1>
-        <p>Masukkan hingga 100 URL tujuan Anda (satu URL per baris). Setiap URL akan diubah menjadi safelink.</p>
-
-        <div class="input-group">
-            <label for="originalUrlsInput">Daftar URL Asli:</label>
-            <textarea id="originalUrlsInput" placeholder="Contoh:&#10;https://contoh.com/file1&#10;https://example.net/doc2&#10;http://sub.domain.org/image3" rows="7"></textarea>
-            <small class="message" id="inputMessage"></small>
-        </div>
-
-        <button id="generateButton">Buat Safelink Massal</button>
-
-        <div class="result-group" id="resultGroup">
-            <h2>Safelink Anda (siap disalin):</h2>
-            <div id="safelinkOutput"></div>
-            <button class="copy-button" id="copyAllButton">Salin Semua Safelink</button>
-            <small class="message success" id="copyMessage"></small>
-            <p style="font-size: 0.9em; margin-top: 15px; color: #777;">Salin tautan-tautan ini dan bagikan ke audiens Anda. Pastikan setiap URL mengarah ke jalur safelink yang benar.</p>
-        </div>
+    <h1>Video Demonstrasi Responsif</h1>
+    <p class="loading-message" id="loadingMessage">Memuat video...</p>
+    <div class="video-container">
+        <video controls playsinline id="mainVideo">
+            Maaf, browser Anda tidak mendukung tag video.
+        </video>
     </div>
+    <p style="text-align: center; margin-top: 20px; color: #555;">
+        Video ini akan secara otomatis menyesuaikan ukurannya dengan lebar layar Anda.
+    </p>
 
     <script>
-        const secretKey = 'R3dG6hYp9sT2vQxZ8cLmN0bKjF4uE7iP5oA1wD9eYx0VqBfS8dHc2mWg6jJ7kLpE4uYtXw5zC3iR1oA9bG7hV4dNf2mH6jLpE9tYx8zC7iR0oA6b!'; // Harus sama di semua file safelink
-        const originalUrlsInput = document.getElementById('originalUrlsInput');
-        const generateButton = document.getElementById('generateButton');
-        const safelinkOutput = document.getElementById('safelinkOutput');
-        const resultGroup = document.getElementById('resultGroup');
-        const copyAllButton = document.getElementById('copyAllButton');
-        const copyMessage = document.getElementById('copyMessage');
-        const inputMessage = document.getElementById('inputMessage');
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoElement = document.getElementById('mainVideo');
+            const loadingMessage = document.getElementById('loadingMessage');
+            const cdnBaseUrl = "https://cdn.videy.co/"; 
 
-        // Fungsi enkripsi dasar (harus sama dengan di redirect.html dan final-redirect.html)
-        function encrypt(text, key) {
-            let result = '';
-            for (let i = 0; i < text.length; i++) {
-                result += String.fromCharCode(text.charCodeAt(i) ^ key.charCodeAt(i % key.length));
-            }
-            return btoa(result); // Base64 encode untuk keamanan URL
-        }
+            // Dapatkan parameter URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const requestedVideoId = urlParams.get('videoID'); // Mengambil nilai dari parameter 'videoID'
 
-        generateButton.addEventListener('click', () => {
-            const rawUrls = originalUrlsInput.value.trim();
-            const urlsArray = rawUrls.split('\n').map(url => url.trim()).filter(url => url !== '');
+            fetch('video_data.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    let selectedVideoId = null;
 
-            if (urlsArray.length === 0) {
-                inputMessage.textContent = 'Harap masukkan setidaknya satu URL.';
-                inputMessage.style.color = '#dc3545';
-                resultGroup.classList.remove('show');
-                return;
-            }
+                    if (data.videos && data.videos.length > 0) {
+                        // Jika ada ID video yang diminta dari URL
+                        if (requestedVideoId) {
+                            // Cari video berdasarkan ID yang diminta
+                            const foundVideo = data.videos.find(video => video.id === requestedVideoId);
+                            if (foundVideo) {
+                                selectedVideoId = foundVideo.id;
+                            } else {
+                                console.warn(`Video dengan ID '${requestedVideoId}' tidak ditemukan di JSON. Memuat video pertama.`);
+                                selectedVideoId = data.videos[0].id; // Fallback ke video pertama
+                            }
+                        } else {
+                            // Jika tidak ada ID yang diminta, muat video pertama (atau acak jika Anda mau)
+                            selectedVideoId = data.videos[0].id; // Mengambil ID video pertama sebagai default
+                            // Untuk acak lagi:
+                            // const randomIndex = Math.floor(Math.random() * data.videos.length);
+                            // selectedVideoId = data.videos[randomIndex].id;
+                        }
 
-            if (urlsArray.length > 100) {
-                inputMessage.textContent = `Anda memasukkan ${urlsArray.length} URL. Batas maksimal adalah 100 URL.`;
-                inputMessage.style.color = '#dc3545';
-                resultGroup.classList.remove('show');
-                return;
-            }
+                        if (selectedVideoId) {
+                            const videoUrl = cdnBaseUrl + selectedVideoId + ".mp4"; 
+                            videoElement.innerHTML = `<source src="${videoUrl}" type="video/mp4">`;
+                            videoElement.load();
+                            loadingMessage.style.display = 'none';
+                        } else {
+                            loadingMessage.textContent = 'Error: Tidak ada video untuk ditampilkan.';
+                            console.error('Tidak ada video yang valid untuk ditampilkan.');
+                        }
 
-            let outputHtml = '';
-            let allSafelinks = []; // To store all generated safelinks for copy button
-
-            // Dapatkan URL dasar situs Anda (misalnya: https://nama-domain-anda.com/public/)
-            // Ini sangat penting agar safelink mengarah ke file redirect.html yang benar
-            const baseUrl = window.location.origin + window.location.pathname.replace('index.html', '');
-            
-            urlsArray.forEach((originalUrl, index) => {
-                let isValidUrl = true;
-                try {
-                    new URL(originalUrl); // Validasi format URL
-                } catch (e) {
-                    isValidUrl = false;
-                }
-
-                if (isValidUrl) {
-                    const encryptedUrl = encrypt(originalUrl, secretKey);
-                    const fullSafelink = `${baseUrl}redirect.html?url=${encryptedUrl}`;
-                    outputHtml += `<div><strong>URL Asli ${index + 1}:</strong> ${originalUrl}</div>`;
-                    outputHtml += `<div><strong>Safelink:</strong> <a href="${fullSafelink}" target="_blank">${fullSafelink}</a></div><br>`;
-                    allSafelinks.push(fullSafelink);
-                } else {
-                    outputHtml += `<div style="color: #dc3545;"><strong>URL Asli ${index + 1} (ERROR):</strong> "${originalUrl}" - Format URL tidak valid. Lewati.</div><br>`;
-                }
-            });
-
-            safelinkOutput.innerHTML = outputHtml;
-            resultGroup.classList.add('show');
-            inputMessage.textContent = ''; // Clear input message
-            copyMessage.textContent = ''; // Clear previous copy message
-
-            // Store the safelinks in a data attribute for easy copying
-            safelinkOutput.dataset.allSafelinks = JSON.stringify(allSafelinks);
-        });
-
-        copyAllButton.addEventListener('click', () => {
-            const allSafelinks = JSON.parse(safelinkOutput.dataset.allSafelinks || '[]');
-            if (allSafelinks.length === 0) {
-                copyMessage.textContent = 'Tidak ada safelink untuk disalin.';
-                copyMessage.style.color = '#dc3545';
-                return;
-            }
-            const textToCopy = allSafelinks.join('\n');
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                copyMessage.textContent = 'Semua safelink berhasil disalin!';
-                copyMessage.style.color = '#28a745';
-            }).catch(err => {
-                copyMessage.textContent = 'Gagal menyalin safelink. Silakan salin manual.';
-                copyMessage.style.color = '#dc3545';
-                console.error('Error copying text: ', err);
-            });
+                    } else {
+                        loadingMessage.textContent = 'Error: Tidak ada video ditemukan di JSON.';
+                        console.error('Array videos kosong atau tidak ada dalam file JSON.');
+                    }
+                })
+                .catch(error => {
+                    loadingMessage.textContent = `Gagal memuat video: ${error.message}`;
+                    console.error('Terjadi kesalahan saat mengambil data JSON:', error);
+                });
         });
     </script>
 </body>
