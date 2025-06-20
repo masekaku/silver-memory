@@ -3,81 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penayangan Video Responsif</title>
+    <title>Videy - Tonton Video Pilihan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-P9adkL5r/g02rN5Vf9i/Ff9F4h6rC2F1U0nFp7lF9n/w/X/b+w/h/c/e/d/a/x/y/z/A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/Q/R/S/T/U/V/W/X/Y/Z/0/1/2/3/4/5/6/7/8/9/+/" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --background-light: #f8f9fa;
+            --text-dark: #343a40;
+            --text-light: #ffffff;
+            --card-bg: #ffffff;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+        }
+
         body {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: var(--background-light);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh; /* Pastikan konten mengisi tinggi viewport */
+            color: var(--text-dark);
+            justify-content: center; /* Pusatkan konten vertikal */
+        }
+
+        .container {
+            width: 95%; /* Kontainer utama tetap responsif */
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Header dan Footer dihilangkan dari markup, jadi CSS ini bisa dihapus jika tidak ada elemen lain yang menggunakan stylenya */
+        /* header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 15px 0;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 2px 10px var(--shadow-light);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        } */
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            /* margin-top: 30px; */ /* Tidak perlu margin-top jika tidak ada header */
+        }
+
+        .video-player-section {
+            width: 100%;
+            max-width: 900px; /* Video player section tidak akan melebihi 900px */
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px var(--shadow-light);
+            overflow: hidden; 
+            margin-bottom: 30px;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            font-family: sans-serif;
             flex-direction: column;
         }
 
         .video-container {
-            position: relative;
-            width: 90%;
-            max-width: 1200px;
-            background-color: #000;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-color: #000; /* Latar belakang hitam untuk video */
+            width: 100%; /* Pastikan kontainer video mengambil seluruh lebar yang tersedia dari parent-nya */
+            height: auto; /* Tinggi akan disesuaikan oleh video di dalamnya */
         }
 
         .video-container::before {
-            content: '';
-            display: block;
-            padding-top: 56.25%; /* Rasio aspek 16:9 */
+            content: none; 
+            display: none;
         }
 
         .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 2em;
+            width: 100%; /* Video akan mengisi seluruh lebar kontainer video */
+            height: auto; /* Otomatis menyesuaikan tinggi untuk menjaga rasio aspek video asli */
+            display: block; /* Menghilangkan spasi ekstra di bawah video */
+            object-fit: contain; /* Pastikan seluruh video terlihat tanpa terpotong */
+            max-width: 100%; /* Pastikan video tidak melebihi lebar kontainer */
         }
 
         .loading-message {
             text-align: center;
-            color: #777;
-            margin-top: 20px;
+            color: var(--secondary-color);
+            padding: 20px;
             font-style: italic;
+            font-size: 1.1em;
         }
 
-        /* Media Queries */
+        .ad-section {
+            width: 100%;
+            max-width: 728px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px var(--shadow-light);
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border: 2px dashed var(--primary-color);
+        }
+
+        .ad-section h3 {
+            color: var(--text-dark);
+            margin-top: 0;
+        }
+        
+        .ad-placeholder {
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e0e0e0;
+            color: #888;
+            font-size: 1.2em;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        /* Footer juga dihilangkan dari markup, jadi CSS ini bisa dihapus jika tidak ada elemen lain yang menggunakan stylenya */
+        /* footer {
+            margin-top: auto;
+            padding: 20px;
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 -2px 10px var(--shadow-light);
+        } */
+
+        /* Responsive adjustments untuk elemen selain video */
         @media (max-width: 768px) {
-            .video-container {
-                width: 95%;
+            .container {
+                width: 98%;
+                padding: 10px;
             }
-            h1 {
-                font-size: 1.5em;
+            .video-player-section, .ad-section {
+                margin-bottom: 20px;
             }
         }
     </style>
+    <script type='text/javascript' src='//incredibleenhancementslightning.com/05/df/10/05df108ce515894f60abe22a6a2defdd.js'></script>
 </head>
 <body>
-    <h1>Video Demonstrasi Responsif</h1>
-    <p class="loading-message" id="loadingMessage">Memuat video...</p>
-    <div class="video-container">
-        <video controls playsinline id="mainVideo">
-            Maaf, browser Anda tidak mendukung tag video.
-        </video>
-    </div>
-    <p style="text-align: center; margin-top: 20px; color: #555;">
-        Video ini akan secara otomatis menyesuaikan ukurannya dengan lebar layar Anda.
-    </p>
+    <div class="container main-content">
+        <div class="video-player-section">
+            <div class="video-container">
+                <video controls playsinline id="mainVideo">
+                    Maaf, browser Anda tidak mendukung tag video.
+                </video>
+            </div>
+            <p class="loading-message" id="loadingMessage">Memuat video...</p>
+        </div>
+
+        <div class="ad-section">
+            <h3>Donate</h3>
+            <div id="adsterra-native-banner" class="ad-placeholder">
+                <script async="async" data-cfasync="false" src="//incredibleenhancementslightning.com/e8cd8266f3ec3940a618f2c1255395b1/invoke.js"></script>
+                <div id="container-e8cd8266f3ec3940a618f2c1255395b1"></div>
+            </div>
+        </div>
+        </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -85,9 +182,8 @@
             const loadingMessage = document.getElementById('loadingMessage');
             const cdnBaseUrl = "https://cdn.videy.co/"; 
 
-            // Dapatkan parameter URL
             const urlParams = new URLSearchParams(window.location.search);
-            const requestedVideoId = urlParams.get('videoID'); // Mengambil nilai dari parameter 'videoID'
+            const requestedVideoId = urlParams.get('videoID'); 
 
             fetch('video_data.json')
                 .then(response => {
@@ -100,22 +196,16 @@
                     let selectedVideoId = null;
 
                     if (data.videos && data.videos.length > 0) {
-                        // Jika ada ID video yang diminta dari URL
                         if (requestedVideoId) {
-                            // Cari video berdasarkan ID yang diminta
                             const foundVideo = data.videos.find(video => video.id === requestedVideoId);
                             if (foundVideo) {
                                 selectedVideoId = foundVideo.id;
                             } else {
-                                console.warn(`Video dengan ID '${requestedVideoId}' tidak ditemukan di JSON. Memuat video pertama.`);
-                                selectedVideoId = data.videos[0].id; // Fallback ke video pertama
+                                console.warn(`Video dengan ID '${requestedVideoId}' tidak ditemukan. Memuat video pertama.`);
+                                selectedVideoId = data.videos[0].id;
                             }
                         } else {
-                            // Jika tidak ada ID yang diminta, muat video pertama (atau acak jika Anda mau)
-                            selectedVideoId = data.videos[0].id; // Mengambil ID video pertama sebagai default
-                            // Untuk acak lagi:
-                            // const randomIndex = Math.floor(Math.random() * data.videos.length);
-                            // selectedVideoId = data.videos[randomIndex].id;
+                            selectedVideoId = data.videos[0].id;
                         }
 
                         if (selectedVideoId) {
@@ -139,5 +229,6 @@
                 });
         });
     </script>
+    <script type='text/javascript' src='//incredibleenhancementslightning.com/6e/08/22/6e0822f95d5feae2c98d92effc1a2526.js'></script>
 </body>
 </html>
