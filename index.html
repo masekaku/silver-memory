@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memproses Tautan...</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f0f2f5 0%, #e0e5ec 100%);
+            color: #333;
+            overflow: hidden;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInScale 0.8s forwards ease-out;
+            border: 1px solid #e0e0e0;
+        }
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    </head>
+<body>
+    <div class="container">
+        <h1>Mempersiapkan Pengalihan Aman...</h1>
+        <div class="spinner"></div>
+        <p>Harap tunggu sebentar. Anda akan segera dialihkan.</p>
+    </div>
+
+    <script>
+        const secretKey = 'R3dG6hYp9sT2vQxZ8cLmN0bKjF4uE7iP5oA1wD9eYx0VqBfS8dHc2mWg6jJ7kLpE4uYtXw5zC3iR1oA9bG7hV4dNf2mH6jLpE9tYx8zC7iR0oA6b!'; // Harus sama dengan di redirect.html dan final-redirect.html
+        
+        // GANTI INI DENGAN URL ASLI YANG INGIN ANDA SAFE-LINK
+        // Contoh: 'https://www.google.com'
+        const originalTargetUrl = 'YOUR_ORIGINAL_TARGET_URL_HERE'; 
+
+        // Fungsi enkripsi dasar (harus sama dengan di redirect.html dan final-redirect.html)
+        function encrypt(text, key) {
+            let result = '';
+            for (let i = 0; i < text.length; i++) {
+                result += String.fromCharCode(text.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+            }
+            return btoa(result); // Base64 encode untuk keamanan URL
+        }
+
+        // Enkripsi URL tujuan
+        const encryptedUrl = encrypt(originalTargetUrl, secretKey);
+
+        // Redirect ke redirect.html dengan URL yang sudah dienkripsi
+        // Penundaan sebentar untuk memberi waktu page ter-load sempurna
+        setTimeout(() => {
+            window.location.href = `redirect.html?url=${encryptedUrl}`;
+        }, 1500); // Redirect setelah 1.5 detik
+    </script>
+
+    </body>
+</html>
