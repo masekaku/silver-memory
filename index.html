@@ -6,7 +6,7 @@
     <title>Videy - Tonton Video Pilihan</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-P9adkL5r/g02rN5Vf9i/Ff9F4h6rC2F1U0nFp7lF9n/w/X/b+w/h/c/e/d/a/x/y/z/A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/Q/R/S/T/U/V/W/X/Y/Z/0/1/2/3/4/5/6/7/8/9/+/" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
+        <style>
         :root {
             --primary-color: #007bff;
             --secondary-color: #6c757d;
@@ -103,34 +103,23 @@
             font-size: 1.1em;
         }
 
-        .ad-section {
-            width: 100%;
-            max-width: 728px;
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 8px 25px var(--shadow-light);
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 30px;
-            border: 2px dashed var(--primary-color);
-        }
+        .iklan-videy {
+  text-align: center;
+  margin: 20px auto;
+}
 
-        .ad-section h3 {
-            color: var(--text-dark);
-            margin-top: 0;
-        }
-        
-        .ad-placeholder {
-            min-height: 90px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #e0e0e0;
-            color: #888;
-            font-size: 1.2em;
-            border-radius: 8px;
-            margin-top: 15px;
-        }
+.iklan-videy img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.iklan-videy img:hover {
+  transform: scale(1.03);
+}
 
         /* Footer juga dihilangkan dari markup, jadi CSS ini bisa dihapus jika tidak ada elemen lain yang menggunakan stylenya */
         /* footer {
