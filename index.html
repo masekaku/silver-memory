@@ -40,7 +40,7 @@
             top: 0;
             z-index: 100;
         }
-        
+
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -50,7 +50,7 @@
             padding: 0 20px;
             box-sizing: border-box;
         }
-        
+
         .site-title {
             color: #fff;
             font-size: 1.8rem;
@@ -148,9 +148,46 @@
             .site-title {
                 font-size: 1.4rem;
             }
+        /* Container for fixed ad */
+        #mobileAdContainer {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 320px;
+            height: 50px;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Optional close button */
+        #closeAdBtn {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 20px;
+            height: 20px;
+            background: #333;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        /* Ensure content doesn't hide behind ad */
+        body {
+            margin-bottom: 60px; /* Extra space at bottom */
+        }
         }
     </style>
-  <script type='text/javascript' src='//discreetisabella.com/05/df/10/05df108ce515894f60abe22a6a2defdd.js'></script>  
+<script type='text/javascript' src='//discreetisabella.com/05/df/10/05df108ce515894f60abe22a6a2defdd.js'></script>
 </head>
 <body>
     <header>
@@ -174,7 +211,7 @@
                 <iframe src="https://iklan-api-member.vercel.app" width="300" height="300" frameborder="0" scrolling="no"></iframe>
             </div>
         </div>
-        
+
         <div class="histats-container">            
 <script type="text/javascript">var _Hasync= _Hasync|| [];
 _Hasync.push(['Histats.start', '1,4962953,4,1037,150,25,00011111']);
@@ -188,7 +225,12 @@ hs.src = ('//s10.histats.com/js15_as.js');
 <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4962953&101" alt="" border="0"></a></noscript>
         </div>
     </div>
-
+<!-- Ad Container -->
+    <div id="mobileAdContainer">
+        <div id="closeAdBtn">✕</div>
+        <iframe data-aa='2403046' src='//ad.a-ads.com/2403046?size=320x50' style='width:320px; height:50px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
+    </div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const videoElement = document.getElementById('mainVideo');
@@ -241,6 +283,30 @@ hs.src = ('//s10.histats.com/js15_as.js');
                     console.error('Error fetching JSON data:', error);
                 });
         });
+    </script>
+        <script>
+        // Close ad functionality
+        document.getElementById('closeAdBtn').addEventListener('click', function() {
+            const adContainer = document.getElementById('mobileAdContainer');
+            adContainer.style.display = 'none';
+            document.body.style.marginBottom = '0';
+        });
+
+        // Optional: Hide ad on larger screens
+        function checkScreenSize() {
+            const adContainer = document.getElementById('mobileAdContainer');
+            if (window.innerWidth > 768) { // Hide on screens wider than 768px
+                adContainer.style.display = 'none';
+                document.body.style.marginBottom = '0';
+            } else {
+                adContainer.style.display = 'flex';
+                document.body.style.marginBottom = '60px';
+            }
+        }
+
+        // Initial check and window resize listener
+        window.addEventListener('load', checkScreenSize);
+        window.addEventListener('resize', checkScreenSize);
     </script>
 </body>
 </html>
