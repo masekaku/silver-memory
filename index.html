@@ -232,59 +232,51 @@ hs.src = ('//s10.histats.com/js15_as.js');
         <iframe data-aa='2403046' src='//ad.a-ads.com/2403046?size=320x50' style='width:320px; height:50px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
     </div>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const videoElement = document.getElementById('mainVideo');
-            const loadingMessage = document.getElementById('loadingMessage');
-            const cdnBaseUrl = "https://cdn.videy.co/"; 
+         <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const videoElement = document.getElementById('mainVideo');
+        const loadingMessage = document.getElementById('loadingMessage');
 
-            const urlParams = new URLSearchParams(window.location.search);
-            const requestedVideoId = urlParams.get('videoID'); 
+        // Define base URLs for both domains
+        const baseUrls = {
+            videy: "https://cdn.videy.co/",
+            quax: "https://qu.ax/"
+        };
 
-            fetch('video_data.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    let selectedVideoId = null;
+        const urlParams = new URLSearchParams(window.location.search);
+        const requestedVideoId = urlParams.get('videoID'); 
 
-                    if (data.videos && data.videos.length > 0) {
-                        if (requestedVideoId) {
-                            const foundVideo = data.videos.find(video => video.id === requestedVideoId);
-                            if (foundVideo) {
-                                selectedVideoId = foundVideo.id;
-                            } else {
-                                console.warn(`Video with ID '${requestedVideoId}' not found. Loading first video.`);
-                                selectedVideoId = data.videos[0].id;
-                            }
-                        } else {
-                            selectedVideoId = data.videos[0].id;
-                        }
+        fetch('video_data.json')
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                return response.json();
+            })
+            .then(data => {
+                if (!data.videos || data.videos.length === 0) {
+                    throw new Error('No videos found in JSON');
+                }
 
-                        if (selectedVideoId) {
-                            const videoUrl = cdnBaseUrl + selectedVideoId + ".mp4"; 
-                            videoElement.innerHTML = `<source src="${videoUrl}" type="video/mp4">`;
-                            videoElement.load();
-                            loadingMessage.style.display = 'none';
-                        } else {
-                            loadingMessage.textContent = 'Error: No video available.';
-                            console.error('No valid video to display.');
-                        }
+                // Find requested video or default to first
+                let selectedVideo = requestedVideoId
+                    ? data.videos.find(v => v.id === requestedVideoId) || data.videos[0]
+                    : data.videos[0];
 
-                    } else {
-                        loadingMessage.textContent = 'Error: No videos found in JSON.';
-                        console.error('Videos array is empty or missing in JSON file.');
-                    }
-                })
-                .catch(error => {
-                    loadingMessage.textContent = `Failed to load video: ${error.message}`;
-                    console.error('Error fetching JSON data:', error);
-                });
-        });
-    </script>
+                // Determine source (default to 'videy' if missing)
+                const source = selectedVideo.source || 'videy';
+                const baseUrl = baseUrls[source] || baseUrls.videy;
+
+                // Build video URL
+                const videoUrl = baseUrl + selectedVideo.id + ".mp4";
+                videoElement.innerHTML = `<source src="${videoUrl}" type="video/mp4">`;
+                videoElement.load();
+                loadingMessage.style.display = 'none';
+            })
+            .catch(error => {
+                loadingMessage.textContent = `Error: ${error.message}`;
+                console.error('Video loading failed:', error);
+            });
+    });
+</script>
         <script>
         // Close ad functionality
         document.getElementById('closeAdBtn').addEventListener('click', function() {
