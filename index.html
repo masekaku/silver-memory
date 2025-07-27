@@ -2,11 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="coinzilla" content="66248decd19808f9d78669dcc494b1f6" />
-    <title>Lato Atea</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes shrink-to-fit=no">
+    <meta name="robots" content="index, follow">    	
+    <title>Lato Athea</title>
+    <meta name="author" content="vclarenn">
+    <meta name="description" content="Nonton film online & streaming movie terbaru gratis di Lato Athea. Temukan berbagai video dan film terbaik untuk di-download, situs nonton film favorit Anda!">
+    <meta name="keywords" content="Nonton film online tanpa registrasi, Streaming movie bebas iklan, Serial TV fantasi terbaik">
+    
+    <meta property="og:title" content="Streaming asupan bebas iklan">
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrM1dGhGHdK8aMfMV0cqYW6NUaxtEvcaK7C4rnrargepWwFX6oOjkfvGbUjhzO7IVscUuYkQTs_7hLSEbBw6noIkg64xTcZt5CsTziydgk1iiAcT8Gjz2jkX0tC6PHdzBtBHtakEOn275_vXlHEUT_8jUKdnJX6JTtvB3vp4DRGf-ry8osBEKW5rgYgZM/s3264/1000043203.png">
+    <meta property="og:url" content="https://videynow.clarisa.web.id/">
+    <meta property="og:type" content="video.movie">
+    <meta property="og:site_name" content="Lato Athea">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@vclarenn">
+    <meta name="twitter:title" content="Serial fantasi terbaik">
+    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrM1dGhGHdK8aMfMV0cqYW6NUaxtEvcaK7C4rnrargepWwFX6oOjkfvGbUjhzO7IVscUuYkQTs_7hLSEbBw6noIkg64xTcZt5CsTziydgk1iiAcT8Gjz2jkX0tC6PHdzBtBHtakEOn275_vXlHEUT_8jUKdnJX6JTtvB3vp4DRGf-ry8osBEKW5rgYgZM/s3264/1000043203.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-P9adkL5r/g02rN5Vf9i/Ff9F4h6rC2F1U0nFp7lF9n/w/X/b+w/h/c/e/d/a/x/y/z/A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/Q/R/S/T/U/V/W/X/Y/Z/0/1/2/3/4/5/6/7/8/9/+/" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <style>
         :root {
             --primary-color: #007bff;
@@ -53,8 +70,8 @@
         }
 
         .site-title {
-            color: #fff;
-            font-size: 1.8rem;
+            color: #FF4500;
+            font-size: 10rem; /* Ini mungkin terlalu besar, periksa di browser Anda */
             font-weight: 700;
             margin: 0;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
@@ -134,10 +151,80 @@
             margin-top: 15px;
             padding: 10px;
             text-align: center;
-            color: #888;
+            color: #483D8B;
             font-size: 0.9rem;
         }
 
+        /* Styling untuk iklan yang muncul dari bawah */
+        .sticky-ad-bottom {
+            position: fixed;
+            bottom: -84px; /* Sembunyikan iklan di bawah layar. Tinggi total = 84px */
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto; /* Biarkan lebar mengikuti konten di dalamnya (ad-frame) */
+            height: auto; /* Biarkan tinggi mengikuti konten di dalamnya (ad-frame) */
+            background-color: transparent; /* Bisa transparan atau warna di belakang border */
+            color: #fff;
+            padding: 10px 0; /* Padding vertikal untuk ruang atas-bawah pada container utama */
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 8px 8px 0 0;
+            z-index: 999;
+            transition: bottom 0.5s ease-out;
+            text-align: center;
+        }
+
+        .sticky-ad-bottom.show {
+            bottom: 0; /* Posisi saat iklan muncul di layar */
+        }
+
+        .sticky-ad-bottom .ad-content {
+            position: relative;
+            /* ad-content tidak perlu padding atau flexbox di sini, karena .ad-frame yang diatur */
+        }
+
+        .ad-frame {
+            width: 320px;
+            height: 50px;
+            border: 2px solid #00FFFF; /* Contoh border: 2px tebal, solid, warna Cyan. Ganti sesuai keinginan Anda! */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #222; /* Latar belakang di belakang border */
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px auto 0 auto; /* Margin atas untuk ruang dari tombol tutup, auto untuk pusat horizontal */
+        }
+
+        .ad-frame iframe {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sticky-ad-bottom .close-ad {
+            position: absolute;
+            top: -15px; /* Sesuaikan posisi di atas border */
+            right: -15px; /* Sesuaikan posisi di samping border */
+            font-size: 1em;
+            cursor: pointer;
+            color: #fff;
+            background-color: #333;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+            z-index: 1000;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+        }
+
+        .sticky-ad-bottom .close-ad:hover {
+            background-color: #555;
+        }
+
+        /* Media queries */
         @media (max-width: 768px) {
             .container {
                 width: 98%;
@@ -149,51 +236,22 @@
             .site-title {
                 font-size: 1.4rem;
             }
-        /* Container for fixed ad */
-        #mobileAdContainer {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 320px;
-            height: 50px;
-            background: #f0f0f0;
-            border: 1px solid #ccc;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Optional close button */
-        #closeAdBtn {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            width: 20px;
-            height: 20px;
-            background: #333;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 12px;
-            cursor: pointer;
-        }
-
-        /* Ensure content doesn't hide behind ad */
-        body {
-            margin-bottom: 60px; /* Extra space at bottom */
-        }
+            /* Media query untuk sticky ad */
+            .sticky-ad-bottom {
+                /* max-width tidak perlu diubah karena sudah dikontrol oleh .ad-frame */
+            }
+            .sticky-ad-bottom .close-ad {
+                top: -15px;
+                right: -15px;
+            }
         }
     </style>
-<script type='text/javascript' src='//discreetisabella.com/05/df/10/05df108ce515894f60abe22a6a2defdd.js'></script>
+    <script type='text/javascript' src='//discreetisabella.com/05/df/10/05df108ce515894f60abe22a6a2defdd.js'></script>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <h1 class="site-title">Lato Atea</h1>
+            <h1 class="site-title">Lato Athea</h1>
         </div>
     </header>
 
@@ -209,7 +267,7 @@
 
         <div class="ad-section">
             <div id="adsterra-native-banner" class="ad-placeholder">
-                <iframe src="https://iklan-api-member.vercel.app" width="300" height="300" frameborder="0" scrolling="no"></iframe>
+                <iframe data-aa="2404581" src="//ad.a-ads.com/2404581?size=300x250&background_color=000000&text_color=8a2be2&title_color=ff4500&title_hover_color=483d8b&link_color=00ff00&link_hover_color=00bfff" style="width:300px; height:250px; border:0px; padding:0; overflow:hidden; background-color: transparent;"></iframe>
             </div>
         </div>
 
@@ -226,80 +284,146 @@ hs.src = ('//s10.histats.com/js15_as.js');
 <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4962953&101" alt="" border="0"></a></noscript>
         </div>
     </div>
-<!-- Ad Container -->
-    <div id="mobileAdContainer">
-        <div id="closeAdBtn">✕</div>
-        <ins style="width: 320px;height:50px" data-width="320" data-height="50" class="secbaba9fa0" data-domain="//data741.click" data-affquery="/704c66efaff5d99239cf/ecbaba9fa0/?placementName=default"><script src="//data741.click/js/responsive.js" async></script></ins>
+
+    <div id="stickyAdBottom" class="sticky-ad-bottom">
+        <div class="ad-content">
+            <span class="close-ad" onclick="hideStickyAd()">✕</span>
+            
+            <div class="ad-frame">
+                <iframe data-aa="2404583" src="//ad.a-ads.com/2404583?size=320x50&background_color=000000&text_color=8a2be2&title_color=ff4500&title_hover_color=483d8b&link_color=00ff00&link_hover_color=00bfff" style="width:320px; height:50px; border:0px; padding:0; overflow:hidden; background-color: transparent;"></iframe>
+            </div>
+        </div>
     </div>
-    
-         <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const videoElement = document.getElementById('mainVideo');
-        const loadingMessage = document.getElementById('loadingMessage');
 
-        // Define base URLs for both domains
-        const baseUrls = {
-            videy: "https://cdn.videy.co/",
-            quax: "https://qu.ax/"
-        };
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoElement = document.getElementById('mainVideo');
+            const loadingMessage = document.getElementById('loadingMessage');
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const requestedVideoId = urlParams.get('videoID'); 
+            // Definisi base URLs untuk video
+            const baseUrls = {
+                videy: "https://cdn.videy.co/",
+                quax: "https://qu.ax/"
+            };
 
-        fetch('video_data.json')
-            .then(response => {
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                return response.json();
-            })
-            .then(data => {
-                if (!data.videos || data.videos.length === 0) {
-                    throw new Error('No videos found in JSON');
-                }
+            // Mengambil ID video dari parameter URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const requestedVideoId = urlParams.get('videoID');
 
-                // Find requested video or default to first
-                let selectedVideo = requestedVideoId
-                    ? data.videos.find(v => v.id === requestedVideoId) || data.videos[0]
-                    : data.videos[0];
+            // Mengambil data video dari API
+            fetch(requestedVideoId ? `/api/videos?videoID=${requestedVideoId}` : `/api/videos?random=true`)
+                .then(response => {
+                    if (!response.ok) {
+                        // Log error jika respons HTTP tidak OK
+                        console.error(`HTTP error! status: ${response.status} from ${response.url}`);
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (!data.videos || data.videos.length === 0) {
+                        loadingMessage.textContent = 'Error: Video not found or list is empty.';
+                        console.error('No videos found in API response or videoID is invalid.');
+                        return;
+                    }
 
-                // Determine source (default to 'videy' if missing)
-                const source = selectedVideo.source || 'videy';
-                const baseUrl = baseUrls[source] || baseUrls.videy;
+                    const selectedVideo = data.videos[0];
 
-                // Build video URL
-                const videoUrl = baseUrl + selectedVideo.id + ".mp4";
-                videoElement.innerHTML = `<source src="${videoUrl}" type="video/mp4">`;
-                videoElement.load();
-                loadingMessage.style.display = 'none';
-            })
-            .catch(error => {
-                loadingMessage.textContent = `Error: ${error.message}`;
-                console.error('Video loading failed:', error);
-            });
-    });
-</script>
-        <script>
-        // Close ad functionality
-        document.getElementById('closeAdBtn').addEventListener('click', function() {
-            const adContainer = document.getElementById('mobileAdContainer');
-            adContainer.style.display = 'none';
-            document.body.style.marginBottom = '0';
+                    if (!selectedVideo || !selectedVideo.id) {
+                        loadingMessage.textContent = 'Error: Video data is incomplete.';
+                        console.error('Selected video object is invalid or missing ID.');
+                        return;
+                    }
+
+                    const source = selectedVideo.source || 'videy';
+                    const baseUrl = baseUrls[source] || baseUrls.videy;
+                    const videoUrl = baseUrl + selectedVideo.id + ".mp4";
+                    
+                    // Mengatur sumber video dan memuatnya
+                    videoElement.innerHTML = `<source src="${videoUrl}" type="video/mp4">`;
+                    videoElement.load();
+                    loadingMessage.style.display = 'none'; // Sembunyikan pesan loading
+                })
+                .catch(error => {
+                    loadingMessage.textContent = `Error: ${error.message}`;
+                    console.error('Video loading failed:', error);
+                });
         });
+    </script>
 
-        // Optional: Hide ad on larger screens
-        function checkScreenSize() {
-            const adContainer = document.getElementById('mobileAdContainer');
-            if (window.innerWidth > 768) { // Hide on screens wider than 768px
-                adContainer.style.display = 'none';
-                document.body.style.marginBottom = '0';
-            } else {
-                adContainer.style.display = 'flex';
-                document.body.style.marginBottom = '60px';
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const stickyAdBottom = document.getElementById('stickyAdBottom');
+            const initialDelay = 5000; // 5 detik pertama
+            const recurringInterval = 120 * 1000; // 2 menit (120 detik) dalam milidetik
+            const adDisplayDuration = 15000; // Iklan akan terlihat selama 15 detik jika tidak ditutup otomatis
+
+            let adAutoHideTimer; // Timer untuk menyembunyikan iklan otomatis setelah durasi tertentu
+            let adRecurringTimer; // Timer untuk memunculkan iklan setiap 2 menit sekali
+
+            // Fungsi untuk menampilkan iklan
+            function showAd() {
+                // Periksa apakah iklan sudah ditutup manual oleh pengguna di sesi ini
+                const adUserClosed = localStorage.getItem('stickyAdUserClosed');
+
+                if (stickyAdBottom && adUserClosed !== 'true') { // Hanya tampilkan jika belum ditutup pengguna
+                    stickyAdBottom.classList.add('show');
+                    console.log("Iklan muncul.");
+
+                    // Set timer untuk menyembunyikan iklan otomatis setelah adDisplayDuration
+                    // Pastikan timer sebelumnya dihapus agar tidak tumpang tindih
+                    clearTimeout(adAutoHideTimer);
+                    adAutoHideTimer = setTimeout(hideAd, adDisplayDuration);
+                } else if (adUserClosed === 'true') {
+                    console.log("Iklan tidak ditampilkan karena sudah ditutup manual oleh pengguna di sesi ini.");
+                }
             }
-        }
 
-        // Initial check and window resize listener
-        window.addEventListener('load', checkScreenSize);
-        window.addEventListener('resize', checkScreenSize);
+            // Fungsi untuk menyembunyikan iklan
+            function hideAd() {
+                if (stickyAdBottom) {
+                    stickyAdBottom.classList.remove('show');
+                    console.log("Iklan disembunyikan.");
+
+                    // Setelah iklan disembunyikan (baik manual atau otomatis),
+                    // Mulai timer untuk memunculkannya lagi setelah recurringInterval
+                    // Tapi hanya jika pengguna belum menutupnya secara manual
+                    const adUserClosed = localStorage.getItem('stickyAdUserClosed');
+                    if (adUserClosed !== 'true') {
+                        startRecurringAdTimer();
+                    }
+                }
+            }
+
+            // Fungsi untuk memulai timer iklan berulang
+            function startRecurringAdTimer() {
+                clearInterval(adRecurringTimer); // Hapus timer berulang sebelumnya jika ada
+                adRecurringTimer = setInterval(showAd, recurringInterval);
+                console.log("Timer iklan berulang dimulai: Iklan akan muncul lagi dalam " + (recurringInterval / 1000) + " detik.");
+            }
+
+            // Fungsi yang dipanggil saat tombol tutup diklik
+            window.hideStickyAd = function() {
+                hideAd(); // Sembunyikan iklan
+                localStorage.setItem('stickyAdUserClosed', 'true'); // Tandai bahwa pengguna telah menutupnya
+                clearInterval(adRecurringTimer); // Hentikan timer berulang
+                clearTimeout(adAutoHideTimer); // Hentikan timer sembunyi otomatis
+                console.log("Iklan ditutup manual oleh pengguna. Tidak akan muncul lagi dalam sesi ini.");
+            };
+
+            // --- Alur Utama Saat Halaman Dimuat ---
+
+            // Periksa apakah iklan sudah ditutup manual oleh pengguna di sesi ini
+            const adUserClosedOnLoad = localStorage.getItem('stickyAdUserClosed');
+
+            if (adUserClosedOnLoad !== 'true') {
+                // Munculkan iklan pertama kali setelah initialDelay
+                console.log("Menunggu untuk menampilkan iklan pertama kali setelah " + (initialDelay / 1000) + " detik.");
+                setTimeout(showAd, initialDelay);
+            } else {
+                console.log("Iklan tidak ditampilkan karena sudah ditutup manual oleh pengguna di sesi ini.");
+            }
+        });
     </script>
 </body>
 </html>
