@@ -1,0 +1,299 @@
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --background-light: #000; 
+            --text-dark: #343a40;
+            --text-light: #ffffff;
+            --card-bg: #ffffff;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--text-light);
+            justify-content: center;
+        }
+
+        header {
+            width: 100%;
+            background-color: #111;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .site-title {
+            color: #FF4500;
+            font-size: 10rem;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Age Verification Styles */
+        html body #ageVerificationOverlay {
+            display: flex;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        html body #ageVerificationOverlay #ageVerificationModal {
+            background-color: #1a1a1a;
+            color: white;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            position: relative;
+        }
+
+        html body #ageVerificationOverlay #ageVerificationModal h2 {
+            margin-top: 0;
+            color: #ff6b6b;
+            font-size: 24px;
+        }
+
+        html body #ageVerificationOverlay #ageVerificationModal p {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        html body #ageVerificationOverlay .age-verify-button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        html body #ageVerificationOverlay .age-verify-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        html body #ageVerificationOverlay .age-verify-confirm {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        html body #ageVerificationOverlay .age-verify-confirm:hover {
+            background-color: #45a049;
+        }
+
+        html body #ageVerificationOverlay .age-verify-deny {
+            background-color: #f44336;
+            color: white;
+        }
+
+        html body #ageVerificationOverlay .age-verify-deny:hover {
+            background-color: #d32f2f;
+        }
+
+        .age-verify-hidden {
+            display: none !important;
+        }
+
+        @supports (backdrop-filter: blur(5px)) {
+            html body #ageVerificationOverlay {
+                backdrop-filter: blur(5px);
+            }
+        }
+
+        /* Main Content Styles */
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .video-player-section {
+            width: 100%;
+            max-width: 900px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px var(--shadow-light);
+            overflow: hidden; 
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .video-container {
+            background-color: #000;
+            width: 100%;
+            height: auto;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            max-width: 100%;
+        }
+
+        .loading-message {
+            text-align: center;
+            color: var(--secondary-color);
+            padding: 20px;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+
+        .ad-section {
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        .ad-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .ad-section img:hover {
+            transform: scale(1.03);
+        }
+
+        .histats-container {
+            margin-top: 15px;
+            padding: 10px;
+            text-align: center;
+            color: #483D8B;
+            font-size: 0.9rem;
+        }
+
+        /* Sticky Ad Styles */
+        .sticky-ad-bottom {
+            position: fixed;
+            bottom: -84px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            height: auto;
+            background-color: transparent;
+            color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 8px 8px 0 0;
+            z-index: 999;
+            transition: bottom 0.5s ease-out;
+            text-align: center;
+        }
+
+        .sticky-ad-bottom.show {
+            bottom: 0;
+        }
+
+        .sticky-ad-bottom .ad-content {
+            position: relative;
+        }
+
+        .ad-frame {
+            width: 320px;
+            height: 50px;
+            border: 2px solid #00FFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #222;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px auto 0 auto;
+        }
+
+        .ad-frame iframe {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sticky-ad-bottom .close-ad {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 1em;
+            cursor: pointer;
+            color: #fff;
+            background-color: #333;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+            z-index: 1000;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+        }
+
+        .sticky-ad-bottom .close-ad:hover {
+            background-color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 98%;
+                padding: 10px;
+            }
+            .video-player-section, .ad-section {
+                margin-bottom: 20px;
+            }
+            .site-title {
+                font-size: 1.4rem;
+            }
+            .sticky-ad-bottom .close-ad {
+                top: -15px;
+                right: -15px;
+            }
+        }

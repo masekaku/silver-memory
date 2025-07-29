@@ -3,249 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes shrink-to-fit=no">
-    <meta name="robots" content="index, follow">    	
+    <meta name="robots" content="index, follow">            
     <title>Lato Athea</title>
+
+    <!-- Meta Tags -->
     <meta name="author" content="vclarenn">
     <meta name="description" content="Nonton film online & streaming movie terbaru gratis di Lato Athea. Temukan berbagai video dan film terbaik untuk di-download, situs nonton film favorit Anda!">
     <meta name="keywords" content="Nonton film online tanpa registrasi, Streaming movie bebas iklan, Serial TV fantasi terbaik">
-    
+
+    <!-- OpenGraph Tags -->
     <meta property="og:title" content="Streaming asupan bebas iklan">
     <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrM1dGhGHdK8aMfMV0cqYW6NUaxtEvcaK7C4rnrargepWwFX6oOjkfvGbUjhzO7IVscUuYkQTs_7hLSEbBw6noIkg64xTcZt5CsTziydgk1iiAcT8Gjz2jkX0tC6PHdzBtBHtakEOn275_vXlHEUT_8jUKdnJX6JTtvB3vp4DRGf-ry8osBEKW5rgYgZM/s3264/1000043203.png">
     <meta property="og:url" content="https://videynow.clarisa.web.id/">
     <meta property="og:type" content="video.movie">
     <meta property="og:site_name" content="Lato Athea">
-    
+
+    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@vclarenn">
     <meta name="twitter:title" content="Serial fantasi terbaik">
     <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrM1dGhGHdK8aMfMV0cqYW6NUaxtEvcaK7C4rnrargepWwFX6oOjkfvGbUjhzO7IVscUuYkQTs_7hLSEbBw6noIkg64xTcZt5CsTziydgk1iiAcT8Gjz2jkX0tC6PHdzBtBHtakEOn275_vXlHEUT_8jUKdnJX6JTtvB3vp4DRGf-ry8osBEKW5rgYgZM/s3264/1000043203.png">
-    
+
+    <!-- External Resources -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-P9adkL5r/g02rN5Vf9i/Ff9F4h6rC2F1U0nFp7lF9n/w/X/b+w/h/c/e/d/a/x/y/z/A/B/C/D/E/F/G/H/I/J/K/L/M/N/O/P/Q/R/S/T/U/V/W/X/Y/Z/0/1/2/3/4/5/6/7/8/9/+/" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <style>
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --background-light: #000; 
-            --text-dark: #343a40;
-            --text-light: #ffffff;
-            --card-bg: #ffffff;
-            --shadow-light: rgba(0, 0, 0, 0.1);
-        }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-light);
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            color: var(--text-light);
-            justify-content: center;
-        }
-
-        header {
-            width: 100%;
-            background-color: #111;
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
-        .site-title {
-            color: #FF4500;
-            font-size: 10rem; /* Ini mungkin terlalu besar, periksa di browser Anda */
-            font-weight: 700;
-            margin: 0;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .container {
-            width: 95%;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .video-player-section {
-            width: 100%;
-            max-width: 900px;
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 8px 25px var(--shadow-light);
-            overflow: hidden; 
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .video-container {
-            background-color: #000;
-            width: 100%;
-            height: auto;
-        }
-
-        .video-container video {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: contain;
-            max-width: 100%;
-        }
-
-        .loading-message {
-            text-align: center;
-            color: var(--secondary-color);
-            padding: 20px;
-            font-style: italic;
-            font-size: 1.1em;
-        }
-
-        .ad-section {
-            text-align: center;
-            margin: 20px auto;
-        }
-
-        .ad-section img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .ad-section img:hover {
-            transform: scale(1.03);
-        }
-
-        .histats-container {
-            margin-top: 15px;
-            padding: 10px;
-            text-align: center;
-            color: #483D8B;
-            font-size: 0.9rem;
-        }
-
-        /* Styling untuk iklan yang muncul dari bawah */
-        .sticky-ad-bottom {
-            position: fixed;
-            bottom: -84px; /* Sembunyikan iklan di bawah layar. Tinggi total = 84px */
-            left: 50%;
-            transform: translateX(-50%);
-            width: auto; /* Biarkan lebar mengikuti konten di dalamnya (ad-frame) */
-            height: auto; /* Biarkan tinggi mengikuti konten di dalamnya (ad-frame) */
-            background-color: transparent; /* Bisa transparan atau warna di belakang border */
-            color: #fff;
-            padding: 10px 0; /* Padding vertikal untuk ruang atas-bawah pada container utama */
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
-            border-radius: 8px 8px 0 0;
-            z-index: 999;
-            transition: bottom 0.5s ease-out;
-            text-align: center;
-        }
-
-        .sticky-ad-bottom.show {
-            bottom: 0; /* Posisi saat iklan muncul di layar */
-        }
-
-        .sticky-ad-bottom .ad-content {
-            position: relative;
-            /* ad-content tidak perlu padding atau flexbox di sini, karena .ad-frame yang diatur */
-        }
-
-        .ad-frame {
-            width: 320px;
-            height: 50px;
-            border: 2px solid #00FFFF; /* Contoh border: 2px tebal, solid, warna Cyan. Ganti sesuai keinginan Anda! */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #222; /* Latar belakang di belakang border */
-            border-radius: 5px;
-            overflow: hidden;
-            margin: 10px auto 0 auto; /* Margin atas untuk ruang dari tombol tutup, auto untuk pusat horizontal */
-        }
-
-        .ad-frame iframe {
-            display: block;
-            margin: 0;
-            padding: 0;
-        }
-
-        .sticky-ad-bottom .close-ad {
-            position: absolute;
-            top: -15px; /* Sesuaikan posisi di atas border */
-            right: -15px; /* Sesuaikan posisi di samping border */
-            font-size: 1em;
-            cursor: pointer;
-            color: #fff;
-            background-color: #333;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            line-height: 1;
-            z-index: 1000;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-        }
-
-        .sticky-ad-bottom .close-ad:hover {
-            background-color: #555;
-        }
-
-        /* Media queries */
-        @media (max-width: 768px) {
-            .container {
-                width: 98%;
-                padding: 10px;
-            }
-            .video-player-section, .ad-section {
-                margin-bottom: 20px;
-            }
-            .site-title {
-                font-size: 1.4rem;
-            }
-            /* Media query untuk sticky ad */
-            .sticky-ad-bottom {
-                /* max-width tidak perlu diubah karena sudah dikontrol oleh .ad-frame */
-            }
-            .sticky-ad-bottom .close-ad {
-                top: -15px;
-                right: -15px;
-            }
-        }
-    </style>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles.css">
     <script type='text/javascript' src='//discreetisabella.com/05/df/10/05df108ce515894f60abe22a6a2defdd.js'></script>
 </head>
 <body>
@@ -255,175 +39,69 @@
         </div>
     </header>
 
-    <div class="container main-content">
-        <div class="video-player-section">
-            <div class="video-container">
-                <video controls playsinline id="mainVideo">
-                    Sorry, your browser doesn't support the video tag.
-                </video>
-            </div>
-            <p class="loading-message" id="loadingMessage">Loading video...</p>
-        </div>
+    <!-- Age Verification Overlay -->
+    <div id="ageVerificationOverlay">
+        <div id="ageVerificationModal">
+            <h2>Age Verification Required</h2>
+            <p>This website contains adult-oriented material and is only suitable for those who are 18 years or older.</p>
+            <p>By entering, you confirm that you are at least 18 years of age or meet the legal age requirement in your jurisdiction to view such content.</p>
 
-        <div class="ad-section">
-            <div id="adsterra-native-banner" class="ad-placeholder">
-                <iframe data-aa="2404581" src="//ad.a-ads.com/2404581?size=300x250&background_color=000000&text_color=8a2be2&title_color=ff4500&title_hover_color=483d8b&link_color=00ff00&link_hover_color=00bfff" style="width:300px; height:250px; border:0px; padding:0; overflow:hidden; background-color: transparent;"></iframe>
-            </div>
-        </div>
-
-        <div class="histats-container">            
-<script type="text/javascript">var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,4962953,4,1037,150,25,00011111']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
-(function() {
-var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-})();</script>
-<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4962953&101" alt="" border="0"></a></noscript>
-        </div>
-    </div>
-
-    <div id="stickyAdBottom" class="sticky-ad-bottom">
-        <div class="ad-content">
-            <span class="close-ad" onclick="hideStickyAd()">✕</span>
-            
-            <div class="ad-frame">
-                <iframe data-aa="2404583" src="//ad.a-ads.com/2404583?size=320x50&background_color=000000&text_color=8a2be2&title_color=ff4500&title_hover_color=483d8b&link_color=00ff00&link_hover_color=00bfff" style="width:320px; height:50px; border:0px; padding:0; overflow:hidden; background-color: transparent;"></iframe>
+            <div class="age-verify-button-container">
+                <button id="ageVerifyConfirm" class="age-verify-btn age-verify-confirm">I am 18+ - Enter</button>
+                <button id="ageVerifyDeny" class="age-verify-btn age-verify-deny">I'm Under 18 - Exit</button>
             </div>
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const videoElement = document.getElementById('mainVideo');
-            const loadingMessage = document.getElementById('loadingMessage');
+    <!-- Main Content -->
+    <div id="ageGatedContent" class="age-verify-hidden">
+        <div class="container main-content">
+            <div class="video-player-section">
+                <div class="video-container">
+                    <video controls playsinline id="mainVideo">
+                        Sorry, your browser doesn't support the video tag.
+                    </video>
+                </div>
+                <p class="loading-message" id="loadingMessage">Loading video...</p>
+            </div>
 
-            // Definisi base URLs untuk video
-            const baseUrls = {
-                videy: "https://cdn.videy.co/",
-                quax: "https://qu.ax/"
-            };
+            <div class="ad-section">
+                <div id="adsterra-native-banner" class="ad-placeholder">
+                    <iframe data-aa="2404581" src="//ad.a-ads.com/2404581?size=300x250&background_color=000000&text_color=8a2be2&title_color=ff4500&title_hover_color=483d8b&link_color=00ff00&link_hover_color=00bfff" style="width:300px; height:250px; border:0px; padding:0; overflow:hidden; background-color: transparent;"></iframe>
+                </div>
+            </div>
 
-            // Mengambil ID video dari parameter URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const requestedVideoId = urlParams.get('videoID');
+            <div class="histats-container">            
+                <!-- Histats script remains here -->
+            </div>
+        </div>
 
-            // Mengambil data video dari API
-            fetch(requestedVideoId ? `/api/videos?videoID=${requestedVideoId}` : `/api/videos?random=true`)
-                .then(response => {
-                    if (!response.ok) {
-                        // Log error jika respons HTTP tidak OK
-                        console.error(`HTTP error! status: ${response.status} from ${response.url}`);
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (!data.videos || data.videos.length === 0) {
-                        loadingMessage.textContent = 'Error: Video not found or list is empty.';
-                        console.error('No videos found in API response or videoID is invalid.');
-                        return;
-                    }
+        <div id="stickyAdBottom" class="sticky-ad-bottom">
+            <div class="ad-content">
+                <span class="close-ad" onclick="hideStickyAd()">✕</span>
+                <div class="ad-frame">
+                    <iframe data-aa="2404583" src="//ad.a-ads.com/2404583?size=320x50&background_color=000000&text_color=8a2be2&title_color=ff4500&title_hover_color=483d8b&link_color=00ff00&link_hover_color=00bfff" style="width:320px; height:50px; border:0px; padding:0; overflow:hidden; background-color: transparent;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    const selectedVideo = data.videos[0];
+    <!-- JavaScript Files -->
+    <script src="age-verification.js"></script>
+    <script src="video-loader.js"></script>
+    <script src="ad-manager.js"></script>
 
-                    if (!selectedVideo || !selectedVideo.id) {
-                        loadingMessage.textContent = 'Error: Video data is incomplete.';
-                        console.error('Selected video object is invalid or missing ID.');
-                        return;
-                    }
-
-                    const source = selectedVideo.source || 'videy';
-                    const baseUrl = baseUrls[source] || baseUrls.videy;
-                    const videoUrl = baseUrl + selectedVideo.id + ".mp4";
-                    
-                    // Mengatur sumber video dan memuatnya
-                    videoElement.innerHTML = `<source src="${videoUrl}" type="video/mp4">`;
-                    videoElement.load();
-                    loadingMessage.style.display = 'none'; // Sembunyikan pesan loading
-                })
-                .catch(error => {
-                    loadingMessage.textContent = `Error: ${error.message}`;
-                    console.error('Video loading failed:', error);
-                });
-        });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const stickyAdBottom = document.getElementById('stickyAdBottom');
-            const initialDelay = 5000; // 5 detik pertama
-            const recurringInterval = 120 * 1000; // 2 menit (120 detik) dalam milidetik
-            const adDisplayDuration = 15000; // Iklan akan terlihat selama 15 detik jika tidak ditutup otomatis
-
-            let adAutoHideTimer; // Timer untuk menyembunyikan iklan otomatis setelah durasi tertentu
-            let adRecurringTimer; // Timer untuk memunculkan iklan setiap 2 menit sekali
-
-            // Fungsi untuk menampilkan iklan
-            function showAd() {
-                // Periksa apakah iklan sudah ditutup manual oleh pengguna di sesi ini
-                const adUserClosed = localStorage.getItem('stickyAdUserClosed');
-
-                if (stickyAdBottom && adUserClosed !== 'true') { // Hanya tampilkan jika belum ditutup pengguna
-                    stickyAdBottom.classList.add('show');
-                    console.log("Iklan muncul.");
-
-                    // Set timer untuk menyembunyikan iklan otomatis setelah adDisplayDuration
-                    // Pastikan timer sebelumnya dihapus agar tidak tumpang tindih
-                    clearTimeout(adAutoHideTimer);
-                    adAutoHideTimer = setTimeout(hideAd, adDisplayDuration);
-                } else if (adUserClosed === 'true') {
-                    console.log("Iklan tidak ditampilkan karena sudah ditutup manual oleh pengguna di sesi ini.");
-                }
-            }
-
-            // Fungsi untuk menyembunyikan iklan
-            function hideAd() {
-                if (stickyAdBottom) {
-                    stickyAdBottom.classList.remove('show');
-                    console.log("Iklan disembunyikan.");
-
-                    // Setelah iklan disembunyikan (baik manual atau otomatis),
-                    // Mulai timer untuk memunculkannya lagi setelah recurringInterval
-                    // Tapi hanya jika pengguna belum menutupnya secara manual
-                    const adUserClosed = localStorage.getItem('stickyAdUserClosed');
-                    if (adUserClosed !== 'true') {
-                        startRecurringAdTimer();
-                    }
-                }
-            }
-
-            // Fungsi untuk memulai timer iklan berulang
-            function startRecurringAdTimer() {
-                clearInterval(adRecurringTimer); // Hapus timer berulang sebelumnya jika ada
-                adRecurringTimer = setInterval(showAd, recurringInterval);
-                console.log("Timer iklan berulang dimulai: Iklan akan muncul lagi dalam " + (recurringInterval / 1000) + " detik.");
-            }
-
-            // Fungsi yang dipanggil saat tombol tutup diklik
-            window.hideStickyAd = function() {
-                hideAd(); // Sembunyikan iklan
-                localStorage.setItem('stickyAdUserClosed', 'true'); // Tandai bahwa pengguna telah menutupnya
-                clearInterval(adRecurringTimer); // Hentikan timer berulang
-                clearTimeout(adAutoHideTimer); // Hentikan timer sembunyi otomatis
-                console.log("Iklan ditutup manual oleh pengguna. Tidak akan muncul lagi dalam sesi ini.");
-            };
-
-            // --- Alur Utama Saat Halaman Dimuat ---
-
-            // Periksa apakah iklan sudah ditutup manual oleh pengguna di sesi ini
-            const adUserClosedOnLoad = localStorage.getItem('stickyAdUserClosed');
-
-            if (adUserClosedOnLoad !== 'true') {
-                // Munculkan iklan pertama kali setelah initialDelay
-                console.log("Menunggu untuk menampilkan iklan pertama kali setelah " + (initialDelay / 1000) + " detik.");
-                setTimeout(showAd, initialDelay);
-            } else {
-                console.log("Iklan tidak ditampilkan karena sudah ditutup manual oleh pengguna di sesi ini.");
-            }
-        });
+    <!-- Inline scripts that need to remain -->
+    <script type="text/javascript">
+        var _Hasync= _Hasync|| [];
+        _Hasync.push(['Histats.start', '1,4962953,4,1037,150,25,00011111']);
+        _Hasync.push(['Histats.fasi', '1']);
+        _Hasync.push(['Histats.track_hits', '']);
+        (function() {
+            var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+            hs.src = ('//s10.histats.com/js15_as.js');
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+        })();
     </script>
 </body>
 </html>
