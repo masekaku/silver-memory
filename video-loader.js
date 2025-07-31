@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const requestedVideoId = urlParams.get('videoID');
         const apiUrl = requestedVideoId 
             ? `/api/videos?videoID=${requestedVideoId}` 
-            : `/api/videos?random=true`;
+            : `/api/videos?random=false`;
 
         fetch(apiUrl)
             .then(handleResponse)
