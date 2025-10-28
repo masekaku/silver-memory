@@ -6,101 +6,140 @@
     <meta name="robots" content="index, follow">            
     <title>Lato Athea</title>
 
-    <!-- Meta Tags -->
     <meta name="author" content="vclarenn">
     <meta name="description" content="Nonton film online & streaming movie terbaru gratis di Lato Athea. Temukan berbagai video dan film terbaik untuk di-download, situs nonton film favorit Anda!">
     <meta name="keywords" content="Nonton film online tanpa registrasi, Streaming movie bebas iklan, Serial TV fantasi terbaik">
 
-    <!-- OpenGraph Tags -->
     <meta property="og:title" content="Streaming asupan bebas iklan">
     <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrM1dGhGHdK8aMfMV0cqYW6NUaxtEvcaK7C4rnrargepWwFX6oOjkfvGbUjhzO7IVscUuYkQTs_7hLSEbBw6noIkg64xTcZt5CsTziydgk1iiAcT8Gjz2jkX0tC6PHdzBtBHtakEOn275_vXlHEUT_8jUKdnJX6JTtvB3vp4DRGf-ry8osBEKW5rgYgZM/s3264/1000043203.png">
     <meta property="og:url" content="https://videynow.clarisa.web.id/">
     <meta property="og:type" content="video.movie">
     <meta property="og:site_name" content="Lato Athea">
 
-    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@vclarenn">
     <meta name="twitter:title" content="Serial fantasi terbaik">
     <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrM1dGhGHdK8aMfMV0cqYW6NUaxtEvcaK7C4rnrargepWwFX6oOjkfvGbUjhzO7IVscUuYkQTs_7hLSEbBw6noIkg64xTcZt5CsTziydgk1iiAcT8Gjz2jkX0tC6PHdzBtBHtakEOn275_vXlHEUT_8jUKdnJX6JTtvB3vp4DRGf-ry8osBEKW5rgYgZM/s3264/1000043203.png">
 
-    <!-- External Resources -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-orange': '#FF4500', // Warna site-title Anda
+              'modal-title': '#ff6b6b',  // Warna judul di modal
+              'modal-bg': '#1a1a1a',     // Warna latar modal
+              'brand-green': '#4CAF50',
+              'brand-green-hover': '#45a049',
+              'brand-red': '#f44336',
+              'brand-red-hover': '#d32f2f',
+            },
+            fontFamily: {
+              'poppins': ['Poppins', 'sans-serif'] // Menjadikan Poppins font utama
+            }
+          }
+        }
+      }
+    </script>
+    
+    <style type="text/css">
+      /* Tetap sembunyikan konten yg diblokir verifikasi usia */
+      .age-verify-hidden { 
+        display: none !important; 
+      }
+      
+      /* Mengatur transisi untuk sticky ad */
+      #stickyAdBottom {
+        transition: transform 0.5s ease-out;
+      }
+      #stickyAdBottom.show {
+        transform: translateX(-50%) translateY(0);
+      }
+    </style>
+
     <script type='text/javascript' src='//workplacecakefaculty.com/05/df/10/05df108ce515894f60abe22a6a2defdd.js'></script>
 </head>
-<body>
-    <header>
-        <div class="header-content">
-            <h1 class="site-title">Lato Athea</h1>
+
+<body class="bg-black text-white font-poppins flex flex-col items-center min-h-screen">
+
+    <header class="w-full bg-[#111] py-4 text-center shadow-lg shadow-black/50 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center px-5">
+            <h1 class="site-title text-brand-orange text-[1.4rem] md:text-[10rem] font-bold m-0">
+                Lato Athea
+            </h1>
         </div>
     </header>
 
-    <!-- Age Verification Overlay -->
-    <div id="ageVerificationOverlay">
-        <div id="ageVerificationModal">
-            <h2>Age Verification Required</h2>
-            <p>This website contains adult-oriented material and is only suitable for those who are 18 years or older.</p>
-            <p>By entering, you confirm that you are at least 18 years of age or meet the legal age requirement in your jurisdiction to view such content.</p>
+    <div id="ageVerificationOverlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 backdrop-blur-sm">
+        <div id="ageVerificationModal" class="bg-modal-bg text-white p-7 rounded-lg w-11/12 max-w-lg text-center shadow-lg shadow-black/60 relative">
+            
+            <h2 class="mt-0 text-modal-title text-2xl font-semibold mb-2">Age Verification Required</h2>
+            <p class="mb-4 leading-relaxed text-gray-300">This website contains adult-oriented material and is only suitable for those who are 18 years or older.</p>
+            <p class="mb-4 leading-relaxed text-gray-300">By entering, you confirm that you are at least 18 years of age or meet the legal age requirement in your jurisdiction to view such content.</p>
 
-            <div class="age-verify-button-container">
-                <button id="ageVerifyConfirm" class="age-verify-btn age-verify-confirm">I am 18+ - Enter</button>
-                <button id="ageVerifyDeny" class="age-verify-btn age-verify-deny">I'm Under 18 - Exit</button>
+            <div class="age-verify-button-container flex flex-col gap-3 mt-6">
+                <button id="ageVerifyConfirm" class="age-verify-btn py-3 px-5 border-none rounded-md text-base cursor-pointer transition-all duration-300 font-bold bg-brand-green text-white hover:bg-brand-green-hover">
+                    I am 18+ - Enter
+                </button>
+                <button id="ageVerifyDeny" class="age-verify-btn py-3 px-5 border-none rounded-md text-base cursor-pointer transition-all duration-300 font-bold bg-brand-red text-white hover:bg-brand-red-hover">
+                    I'm Under 18 - Exit
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Main Content -->
-    <div id="ageGatedContent" class="age-verify-hidden">
-        <div class="container main-content">
-            <div class="video-player-section">
-                <div class="video-container">
-                    <video controls playsinline id="mainVideo">
-                        Sorry, your browser doesn't support the video tag.
-                    </video>
-                </div>
-                <p class="loading-message" id="loadingMessage">Loading video...</p>
-            </div>
+    <div id="ageGatedContent" class="age-verify-hidden w-full">
+        <div class="container w-11/12 max-w-6xl mx-auto p-5 box-border">
+            <main class="main-content flex flex-col items-center w-full mt-5">
+                
+                <section class="video-player-section w-full max-w-4xl bg-[#1c1c1c] rounded-xl shadow-lg shadow-white/5 overflow-hidden mb-8">
+                    <div class="video-container bg-black w-full h-auto">
+                        <video controls playsinline id="mainVideo" class="w-full h-auto block object-contain max-w-full">
+                            Sorry, your browser doesn't support the video tag.
+                        </video>
+                    </div>
+                    <p class="loading-message text-center text-gray-400 p-5 italic text-lg" id="loadingMessage">Loading video...</p>
+                </section>
 
-            <div class="ad-section">
-                <div id="adsterra-native-banner" class="ad-placeholder">
-                    <iframe
-  src="https://masekaku.github.io/apa-itu-2025/"
-  width="100%"
-  height="500"
-  style="border: none; overflow: hidden;"
-  scrolling="no"
-  allow="autoplay; fullscreen"
-  loading="eager"
-></iframe>
-                </div>
-            </div>
+                <section class="ad-section text-center my-5 mx-auto w-full max-w-4xl">
+                    <div id="adsterra-native-banner" class="ad-placeholder rounded-xl overflow-hidden shadow-lg shadow-black/30 transition-transform duration-300 ease-in-out hover:scale-[1.03] cursor-pointer">
+                        <iframe
+                            src="https://masekaku.github.io/apa-itu-2025/"
+                            width="100%"
+                            height="500"
+                            style="border: none; overflow: hidden; display: block;"
+                            scrolling="no"
+                            allow="autoplay; fullscreen"
+                            loading="eager">
+                        </iframe>
+                    </div>
+                </section>
 
-            <div class="histats-container">            
-                <!-- Histats script remains here -->
-            </div>
+                <div class="histats-container mt-4 p-2.5 text-center text-gray-600 text-sm">            
+                    </div>
+
+            </main>
         </div>
 
-        <div id="stickyAdBottom" class="sticky-ad-bottom">
-            <div class="ad-content">
-                <span class="close-ad" onclick="hideStickyAd()">✕</span>
-                <div class="ad-frame">
+        <div id="stickyAdBottom" class="sticky-ad-bottom fixed bottom-0 left-1/2 -translate-x-1/2 w-auto h-auto bg-transparent z-40 transform translate-y-full">
+            <div class="ad-content relative p-2.5">
+                <span class="close-ad absolute -top-1 -right-1 text-lg cursor-pointer text-white bg-gray-900 rounded-full w-6 h-6 flex justify-center items-center z-50 shadow-md hover:bg-gray-700" onclick="hideStickyAd()">✕</span>
+                
+                <div class="ad-frame w-[320px] h-[50px] border-2 border-cyan-400 flex justify-center items-center bg-gray-900 rounded-md overflow-hidden">
                     <iframe data-aa="2404583" src="//ad.a-ads.com/2404583?size=320x50&background_color=000000&text_color=8a2be2&title_color=ff4500&title_hover_color=483d8b&link_color=00ff00&link_hover_color=00bfff" style="width:320px; height:50px; border:0px; padding:0; overflow:hidden; background-color: transparent;"></iframe>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript Files -->
     <script src="age-verification.js"></script>
     <script src="video-loader.js"></script>
-    <script src="ad-manager.js"></script>
-
-    <!-- Inline scripts that need to remain -->
-    <script type="text/javascript">
+    <script src="ad-manager.js"></script> <script type="text/javascript">
         var _Hasync= _Hasync|| [];
         _Hasync.push(['Histats.start', '1,4962953,4,1037,150,25,00011111']);
         _Hasync.push(['Histats.fasi', '1']);
@@ -110,6 +149,22 @@
             hs.src = ('//s10.histats.com/js15_as.js');
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
         })();
+        
+        // Fungsi untuk ad-manager.js Anda (jika belum ada)
+        function hideStickyAd() {
+            document.getElementById('stickyAdBottom').classList.remove('show');
+        }
+        
+        // Asumsi ad-manager.js akan menambahkan class 'show'
+        // Jika file itu belum ada, Anda bisa tambahkan ini untuk testing:
+        /*
+        document.addEventListener('DOMContentLoaded', () => {
+             // Tampilkan iklan setelah 3 detik
+             setTimeout(() => {
+                document.getElementById('stickyAdBottom').classList.add('show');
+             }, 3000);
+        });
+        */
     </script>
 </body>
 </html>
